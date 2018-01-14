@@ -3,6 +3,11 @@ package Vector;
 import com.sofloni.fraction.Fraction;
 import com.sofloni.fraction.FractionConstructionException;;
 
+/**Concrete Vector implementation for Fraction values.
+ * 
+ * @author soenke f
+ *
+ */
 public class VectorFraction extends Vector<Fraction> {
 
 	public VectorFraction(Fraction... args) {
@@ -148,6 +153,13 @@ public class VectorFraction extends Vector<Fraction> {
 			}
 		}
 		
+		return result;
+	}
+
+	@Override
+	public Vector<Fraction> copy() {
+		VectorFraction result = new VectorFraction(getDimension());
+		result.mElements = this.mElements;
 		return result;
 	}
 }

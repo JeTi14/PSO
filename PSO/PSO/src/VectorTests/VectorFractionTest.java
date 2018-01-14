@@ -3,8 +3,10 @@ package VectorTests;
 import org.junit.Before;
 import org.junit.Test;
 import com.sofloni.fraction.Fraction;
+import com.sofloni.fraction.FractionConstructionException;
 
 import Vector.DimensionException;
+import Vector.Vector;
 import Vector.VectorFraction;
 
 import static org.junit.Assert.*;
@@ -111,6 +113,14 @@ public class VectorFractionTest {
     	{
     		//success
     	}
+    }
+    
+    @Test
+    public void copy() throws Exception {
+    	Vector<Fraction> vc = v0.copy();
+    	assertEquals(vc, v0);
+    	vc.mul(Fraction.createFraction(3,1));
+    	assertNotEquals(vc,v0);
     }
 
 }

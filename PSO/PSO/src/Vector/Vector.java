@@ -2,8 +2,11 @@ package Vector;
 
 import java.lang.reflect.Array;
 
-/**
- * N-Dimensional Vector
+/**N-Dimensional Vector template.
+ * 
+ * @author soenke f
+ *
+ * @param <T> Type of vectors elements
  */
 public abstract class Vector<T> {
     private final int mDim;
@@ -36,6 +39,11 @@ public abstract class Vector<T> {
     public abstract Vector<T> mulConst(final T other);
     public abstract Vector<T> divConst(final T other) throws IllegalArgumentException;
     
+    /**Copies the vector into a new object.
+     * 
+     * @return
+     */
+    public abstract Vector<T> copy();
 
     /*Concrete impl
     */
