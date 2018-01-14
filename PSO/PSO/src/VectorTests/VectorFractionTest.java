@@ -95,10 +95,22 @@ public class VectorFractionTest {
 
     @Test
     public void mul1() throws Exception {
+    	v0.mul(Fraction.createFraction(3,1));
+    	assertEquals(v0, new VectorFraction(Fraction.createFraction(6,1),Fraction.createFraction(9,1)));
     }
 
     @Test
     public void div1() throws Exception {
+    	v0.div(Fraction.createFraction(3,1));
+    	assertEquals(v0, new VectorFraction(Fraction.createFraction(2,3),Fraction.createFraction(1,1)));
+    	
+    	try {
+    		v0.div(Fraction.createFraction(0, 1));
+    		fail("You should not be allowed to divide by zero");
+    	}catch(IllegalArgumentException e)
+    	{
+    		//success
+    	}
     }
 
 }

@@ -1,5 +1,7 @@
 package Vector;
 
+import java.lang.reflect.Array;
+
 /**
  * N-Dimensional Vector
  */
@@ -12,7 +14,7 @@ public abstract class Vector<T> {
      */
     public abstract void normalise();
 
-    /*Vector
+    /*Vector state change
      */
     public abstract void add(final Vector<T> other) throws DimensionException;
     public abstract void sub(final Vector<T> other) throws DimensionException;
@@ -22,14 +24,33 @@ public abstract class Vector<T> {
     /*Scalar
      */
     public abstract void mul(final T other);
-    public abstract void div(final T other);
+    public abstract void div(final T other) throws IllegalArgumentException;
+    
+    /*Vector no state change*/
+    public abstract Vector<T> addConst(final Vector<T> other) throws DimensionException;
+    public abstract Vector<T> subConst(final Vector<T> other) throws DimensionException;
+    public abstract Vector<T> mulConst(final Vector<T> other) throws DimensionException;
+    public abstract Vector<T> divConst(final Vector<T> other) throws DimensionException, IllegalArgumentException;
+    
+    /*Scalar*/
+    public abstract Vector<T> mulConst(final T other);
+    public abstract Vector<T> divConst(final T other) throws IllegalArgumentException;
+    
 
     /*Concrete impl
     */
-    public Vector(T... args)
+    @SafeVarargs
+	public Vector(T... args)
     {
         mDim = args.length;
         mElements = args;
+    }
+    
+    @SuppressWarnings("unchecked")
+	public Vector(Class<T> type, final int dim)
+    {
+    	mDim = dim;
+    	mElements = (T[]) Array.newInstance(type, dim);
     }
 
     public final int getDimension()
