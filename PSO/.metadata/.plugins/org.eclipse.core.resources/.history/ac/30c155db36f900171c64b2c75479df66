@@ -1,0 +1,93 @@
+package PSOAlgorithm;
+
+import java.util.function.BiFunction;
+
+import Vector.Vector;
+
+/**Representing a single particle in the algorithm.
+ * 
+ * @author soenke f
+ *
+ */
+public class Particle<T>{
+	/**
+	 * Current position
+	 */
+	private Vector<T> mCurrentPosition;
+	
+	/**
+	 * The best position this particle experienced.
+	 */
+	private Vector<T> mSelfBestKnownPosition;
+	
+	/**
+	 * The best position an Particle in the swarm experienced.
+	 */
+	private Vector<T> mSwarmBestKnownPosition;
+	
+	/**
+	 * Current velocity
+	 */
+	private Vector<T> mVelocity;
+
+	/////////////////////////////////////////////////////////////////////
+	//Important algorithm parameters:
+	
+	/**
+	 * Function which decides if one Position is better than another.
+	 */
+	private final BiFunction<Vector<T>, Vector<T>, Boolean> mPredicate;
+	
+	/**
+	 * Defines how much the current velocity will be altered.
+	 * => OMEGA
+	 */
+	private final T mInertia;
+	
+	/**
+	 * Defines the influence of the particles personal best position
+	 * when altering the velocity.
+	 * => PHIp
+	 */
+	private final T mPersonalBestWeight;
+	
+	/**
+	 * Defines the influence of the swarms best position
+	 * when altering the velocity.
+	 * => PHIg
+	 */
+	private final T mSwarmBestWeight;
+	
+	//////////////////////////////////////////////////////////////////////////
+	//Operations
+	public Particle(
+			final BiFunction<Vector<T>, Vector<T>, Boolean> predicate,
+			final T inertia,
+			final T personalBestWeight,
+			final T swarmBestWeight
+			)
+	{
+		mPredicate = predicate;
+		mInertia = inertia;
+		mPersonalBestWeight = personalBestWeight;
+		mSwarmBestWeight = swarmBestWeight;
+	}
+	
+	/**
+	 * One iteration step.
+	 */
+	public void update()
+	{
+		//Update velocity
+		//Change position of the particle
+		//If this position is the particles personal best
+		//->Set mSelfBestKnownPosition
+		//->If this position is better than the Swarms best known position
+		//--> Notify the observer
+	}
+	
+	public void setSwarmBestPosition(Vector<T> pos)
+	{
+		mSwarmBestKnownPosition = pos;
+	}
+}

@@ -1,0 +1,10 @@
+package PSOAlgorithm;
+
+/**Representing a single particle in the algorithm.
+ * 
+ * @author soenke f
+ *
+ */
+public class Particle<T>{
+	private Vector<T> mCurrentPosition:
+}

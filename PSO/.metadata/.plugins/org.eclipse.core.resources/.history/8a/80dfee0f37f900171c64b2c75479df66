@@ -1,0 +1,5 @@
+package PSOAlgorithm;
+
+public interface ParticleObserver<T> {
+	void onDiscoveredNewBestSwarmPosition(final Vector<T> newBest);
+}

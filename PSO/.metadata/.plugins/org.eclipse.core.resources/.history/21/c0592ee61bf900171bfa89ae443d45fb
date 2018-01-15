@@ -1,0 +1,106 @@
+package VectorTests;
+
+import org.junit.Before;
+import org.junit.Test;
+import com.sofloni.fraction.Fraction;
+
+import Vector.DimensionException;
+import Vector.VectorFraction;
+
+import static org.junit.Assert.*;
+
+public class VectorFractionTest {
+    VectorFraction v0, v1, v2, v3, v4;
+
+    @Before
+    public void setUp() throws Exception {
+        v0 = new VectorFraction(Fraction.createFraction(2,1), Fraction.createFraction(3,1));
+        v1 = new VectorFraction(Fraction.createFraction(5,1), Fraction.createFraction(7,1));
+        v2 = new VectorFraction(Fraction.createFraction(5,1));
+        v3 = new VectorFraction(Fraction.createFraction(0,1), Fraction.createFraction(0,1));
+    }
+
+    @Test
+    public void normalise() throws Exception {
+    }
+
+    @Test
+    public void add() throws Exception {
+        v0.add(v1);
+        assertEquals(v0,new VectorFraction(Fraction.createFraction(7,1), Fraction.createFraction(10,1)));
+
+        try
+        {
+            v0.add(v2);
+            fail("there should be an exception.");
+        }catch(DimensionException e)
+        {
+            //success
+        }
+    }
+
+    @Test
+    public void sub() throws Exception {
+        v0.sub(v1);
+        assertEquals(v0,new VectorFraction(Fraction.createFraction(-3,1), Fraction.createFraction(-4,1)));
+
+        try
+        {
+            v0.add(v2);
+            fail("there should be an exception.");
+        }catch(DimensionException e)
+        {
+            //success
+        }
+    }
+
+    @Test
+    public void mul() throws Exception {
+        v0.mul(v1);
+        assertEquals(v0,new VectorFraction(Fraction.createFraction(10,1), Fraction.createFraction(21,1)));
+
+        try
+        {
+            v0.add(v2);
+            fail("there should be an exception.");
+        }catch(DimensionException e)
+        {
+            //success
+        }
+    }
+
+    @Test
+    public void div() throws Exception {
+        v0.div(v1);
+        assertEquals(v0,new VectorFraction(Fraction.createFraction(2,5), Fraction.createFraction(3,7)));
+
+        try
+        {
+            v0.add(v2);
+            fail("there should be an exception.");
+        }catch(DimensionException e)
+        {
+            //success
+        }
+
+        try
+        {
+            v0.div(v3);
+            fail("there should be an exception.");
+        }catch(IllegalArgumentException e)
+        {
+            //success
+        }
+    }
+
+    @Test
+    public void mul1() throws Exception {
+    	v0.mul(Fraction.createFraction(3,1));
+    	asserEquals(v0, new VectorFraction(Fraction.createFraction(6,1)),Fraction.createFraction(9,1));
+    }
+
+    @Test
+    public void div1() throws Exception {
+    }
+
+}

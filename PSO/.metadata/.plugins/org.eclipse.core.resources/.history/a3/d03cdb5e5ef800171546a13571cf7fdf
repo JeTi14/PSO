@@ -1,0 +1,15 @@
+package com.sofloni.fraction;
+
+public class Boot {	
+	public static void main( String args[]){
+		System.out.println("Hallo Welt");
+		
+		try {
+			Fraction.createFraction(0, 0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		}
+	
+}

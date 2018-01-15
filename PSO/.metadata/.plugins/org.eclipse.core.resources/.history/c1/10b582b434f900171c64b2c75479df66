@@ -1,0 +1,26 @@
+package PSOAlgorithm;
+
+import java.util.function.BiFunction;
+
+import Vector.Vector;
+
+/**Representing a single particle in the algorithm.
+ * 
+ * @author soenke f
+ *
+ */
+public class Particle<T>{
+	private Vector<T> mCurrentPosition;
+	private Vector<T> mSelfBestKnownPosition;
+	private Vector<T> mSwarmBestKnownPosition;
+	
+	/**
+	 * Current velocity;
+	 */
+	private Vector<T> mVelocity;
+	
+	/**
+	 * Function which decides if one Vector is better than another.
+	 */
+	private final BiFunction<Vector<T>, Vector<T>, Boolean> mPredicate; 
+}

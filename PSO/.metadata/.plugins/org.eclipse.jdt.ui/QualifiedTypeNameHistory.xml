@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="com.sofloni.fraction.FractionConstructionException"/>
+<fullyQualifiedTypeName name="com.sofloni.fraction.Fraction"/>
+<fullyQualifiedTypeName name="Vector.DimensionException"/>
+<fullyQualifiedTypeName name="java.lang.IllegalArgumentException"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Array"/>
+<fullyQualifiedTypeName name="java.util.Vector"/>
+<fullyQualifiedTypeName name="java.util.function.BiFunction"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="PSOAlgorithm.ParticleObserver"/>
+<fullyQualifiedTypeName name="Vector.VectorFraction"/>
+<fullyQualifiedTypeName name="Vector.Vector"/>
+</qualifiedTypeNameHistroy>
